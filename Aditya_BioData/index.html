@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio-Data | Aditya Kumar Raj</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --text-color: #2d3748;
+            --text-light: #4a5568;
+            --bg-color: #edf2f7;
+            --container-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--container-bg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border-top: 8px solid var(--primary-color);
+            overflow: hidden;
+        }
+
+        .header {
+            padding: 50px 50px 30px;
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            background-color: #f8fafc;
+        }
+
+        .header h1 {
+            font-family: 'Lora', serif;
+            font-size: 3.2rem;
+            color: var(--primary-color);
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header h2 {
+            font-size: 1.6rem;
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 1.25rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-info svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--secondary-color);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px 50px;
+        }
+
+        .section-title {
+            font-family: 'Lora', serif;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            font-weight: 800;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .item {
+            margin-bottom: 25px;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .item-subtitle {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .item-meta {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .desc-text {
+            font-size: 1.25rem;
+            color: var(--text-color);
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.3rem;
+        }
+
+        table td {
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        table tr:last-child td {
+            border-bottom: none;
+        }
+
+        table td:first-child {
+            font-weight: 800;
+            color: var(--text-color);
+            width: 40%;
+        }
+
+        table td:last-child {
+            color: var(--text-color);
+            font-weight: 600;
+            width: 60%;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .skills-list li::before {
+            content: '•';
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .profile-summary {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-color);
+            line-height: 1.8;
+            text-align: justify;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f8fafc;
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 4px;
+        }
+
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                border-top: none;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                padding: 40px 20px 25px;
+            }
+
+            .main-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="resume-container">
+        <!-- Header Section -->
+        <header class="header">
+            <div
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px;">
+                <img src="photo.png" alt="Aditya Kumar Raj"
+                    style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid var(--container-bg); outline: 3px solid var(--primary-color); box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div>
+                    <h1>Aditya Kumar Raj</h1>
+                    <h2>District Coordinator Vaishali | Healthcare Administration</h2>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <span>
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                    adityakumarraj@example.com
+                </span>
+                <span>
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                    </svg>
+                    +91 9612840472, +91 7488886787
+                </span>
+                <span>
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                    Muzaffarpur, Bihar 843120
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Professional Summary -->
+            <div class="full-width">
+                <div class="profile-summary">
+                    Dedicated and detail-oriented healthcare and administration professional currently serving as a
+                    District Coordinator at the District Command Control Centre, Vaishali. Equipped with a solid
+                    foundation from a Diploma in Pharmacy, demonstrating a strong intersection of medical knowledge and
+                    operational coordination. Known for reliability, organizational skills, and a steadfast commitment
+                    to ensuring smooth operational flows within critical hospital and healthcare environments.
+                </div>
+            </div>
+
+            <!-- Left Column -->
+            <div class="left-col">
+
+                <!-- Experience Section -->
+                <section class="section">
+                    <h3 class="section-title">Professional Experience</h3>
+
+                    <div class="item">
+                        <div class="item-title">District Coordinator Vaishali</div>
+                        <div class="item-subtitle">Sadar Hospital / District Command Control Centre</div>
+                        <div class="item-meta">Hajipur, Bihar | Current Posting</div>
+                        <div class="desc-text">
+                            • Manage and coordinate daily operational tasks at the District Command Control Centre.<br>
+                            • Working structured shifts (8 AM – 4 PM) ensuring consistent administrative and healthcare
+                            support.<br>
+                            • Facilitate communication between various hospital departments and regional health
+                            commands.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Education Section -->
+                <section class="section">
+                    <h3 class="section-title">Education</h3>
+
+                    <div class="item">
+                        <div class="item-title">Diploma in Pharmacy (D. Pharma)</div>
+                        <div class="item-subtitle">Awadhesh College of Pharmacy</div>
+                        <div class="item-meta">Bangalore, Karnataka</div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-title">Intermediate (12th Grade)</div>
+                        <div class="item-subtitle">L.P. Sahi Inter College</div>
+                        <div class="item-meta">Muzaffarpur, Bihar</div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item-title">Matriculation (10th Grade)</div>
+                        <div class="item-subtitle">Bihar School Examination Board (BSEB)</div>
+                        <div class="item-meta">Patna, Bihar</div>
+                    </div>
+                </section>
+
+                <!-- Skills Section -->
+                <section class="section">
+                    <h3 class="section-title">Professional Skills</h3>
+                    <ul class="skills-list">
+                        <li>Healthcare Administration & Coordination</li>
+                        <li>Pharmaceutical Knowledge (D. Pharma)</li>
+                        <li>Operational Workflow Management</li>
+                        <li>ADC Certification (Muzaffarpur)</li>
+                    </ul>
+                </section>
+
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-col">
+
+                <!-- Personal Details Section -->
+                <section class="section">
+                    <h3 class="section-title">Personal / Family Details</h3>
+
+                    <table>
+                        <tr>
+                            <td>Date of Birth</td>
+                            <td>03 May 1999</td>
+                        </tr>
+                        <tr>
+                            <td>Father's Name</td>
+                            <td>Suresh Pd Singh</td>
+                        </tr>
+                        <tr>
+                            <td>Grandfather's Name</td>
+                            <td>Late Kauleshwar Pd Singh</td>
+                        </tr>
+                        <tr>
+                            <td>Elder Sister</td>
+                            <td>3 (Married)</td>
+                        </tr>
+                        <tr>
+                            <td>Religion</td>
+                            <td>Hindu</td>
+                        </tr>
+                        <tr>
+                            <td>Caste</td>
+                            <td>Bhumihaar</td>
+                        </tr>
+                        <tr>
+                            <td>Gotra</td>
+                            <td>Kashyap</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <!-- Address Section -->
+                <section class="section">
+                    <h3 class="section-title">Permanent Address</h3>
+
+                    <table>
+                        <tr>
+                            <td>Village</td>
+                            <td>Laxsi</td>
+                        </tr>
+                        <tr>
+                            <td>Post Office (P.O.)</td>
+                            <td>Bargaonpur</td>
+                        </tr>
+                        <tr>
+                            <td>Police Station (P.S.)</td>
+                            <td>Paroo</td>
+                        </tr>
+                        <tr>
+                            <td>District</td>
+                            <td>Muzaffarpur</td>
+                        </tr>
+                        <tr>
+                            <td>State</td>
+                            <td>Bihar</td>
+                        </tr>
+                        <tr>
+                            <td>Pin Code</td>
+                            <td>843120</td>
+                        </tr>
+                    </table>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>
